@@ -1,4 +1,7 @@
 #include <Arduino.h>
+#include <Ultrasonic.h>
+
+Ultrasonic ultrasonic1(2, 3);
 
 void setup() {
   //Init the led
@@ -12,6 +15,10 @@ void loop() {
   delay(1000);
   digitalWrite(13, LOW);
   delay(1000);
-  Serial.println("Yohoho");
+
+  //print distance 
+  Serial.print("Sensor 01: ");
+  Serial.print(ultrasonic1.read()); // Prints the distance on the default unit (centimeters)
+  Serial.println("cm");
 
 }
